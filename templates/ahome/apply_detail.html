@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table table-striped" style="font-size:12px">
+        <p style="font-size:9;">* 평당가는 타입별 최고가의 평당가의 평균가격임</p>
+        <thead>
+        <tr>
+            <th>모집공고일</th>
+            <th>지역</th>
+            <th>단지명</th>
+            <th>타입</th>
+            <th>공급면적</th>
+            <th>평형</th>
+            <th>타입세대수</th>
+            <th>타입최고가</th>
+            <th>공급평당가</th>
+        </tr></br>
+         </thead>
+        <tbody>
+        {% for value in details %}
+        <tr>
+            <td> {{ value.모집공고일 }}</td>
+            <td> {{ value.지역 }}</td>
+            <td> {{ value.단지명 }}</td>
+            <td> {{ value.타입 }}</td>
+            <td> {{ value.공급면적 }}</td>
+            <td> {{ value.평형 }}</td>
+            <td> {{ value.타입세대수 }}</td>
+            <td> {{ value.타입최고가 }}</td>
+            <td> {{ value.계약종료일 }}</td>
+            <td> {{ value.공급평당가 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

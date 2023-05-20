@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<div class="container">
+    <table class="table table-striped" style="font-size:12px;">
+        <thead class="thead-dark">
+        <tr>
+            <th>PJ코드</th>
+            <th>옵션코드</th>
+            <th>사업명</th>
+            <th>준공</th>
+            <th>입주</th>
+            <th>책준</th>
+            <th>원가율(최초)</th>
+            <th>원가율(재무)</th>
+            <th>원가율(전망)</th>
+            <th>전망이익</th>
+            <th>공정차이</th>
+            <th>매출채권</th>
+            <th>PF잔액</th>
+            <th>자금(당해)</th>
+            <th>자금(누계)</th>
+        </tr>
+        </br>
+        </thead>
+
+        <tbody>
+        {% for list in pjlist %}
+        <tr>
+            <td> {{ list.pjcode }} </td>
+            <td> {{ list.optcode }} </td>
+            <td> {{ list.pjname }} </td>
+            <td> {{ list.end_day|date:'y-m' }}</td>
+            <td> {{ list.come_day|date:'y-m' }}</td>
+            <td> {{ list.dead_day|date:'y-m' }}</td>
+            <td> {{ list.first_rate }}</td>
+            <td> {{ list.finance_rate }}</td>
+            <td> {{ list.end_rate }}</td>
+            <td> {{ list.end_profit|intcomma }}</td>
+            <td> {{ list.diff_ing }}</td>
+            <td> {{ list.fund | intcomma }}</td>
+            <td> {{ list.pf_remain|intcomma }}</td>
+            <td> {{ list.cash_year |intcomma }}</td>
+            <td> {{ list.cash_all | intcomma }}</td>
+        <tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
